@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title> NodeJS with Mysql </title>
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootflat.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+<body>
+
+  <section style="padding: 30px;background-transparent;">
+    &nbsp;
+  </section>
+  <section class="">
+    <div class="container transparent">
+      <div class="col-md-2">
+        <div >
+        <center>
+         <img src="/avatar.png" border="0">
+           </center>
+         <br>
+         <ul class="list-group">
+           <li class="list-group-item">
+              <b>Azeez Abiodun</b>
+           </li>
+           <li class="list-group-item">
+             <small><%= uid %></small>
+           </li>
+           <li class="list-group-item">
+             <a href="#"><i class="fa fa-cog"></i> settings</a>
+           </li>
+           <li class="list-group-item">
+             <a href="./"><i class="fa fa-power-off"></i> signout</a>
+           </li>
+         </ul>
+
+       </div>
+      </div>
+      <div class="col-md-10">
+        <h3 class="color-orange">jomitoro &#7885;&#x0300;r&#7885;&#x0300;</h3>
+      <div style="height: 500px;overflow:auto;background:#FFF">
+
+       <ul class="list-group">
+          <% if( data.length > 0 ) { %>
+            <% data.forEach(function(value, key) { %>
+             <a class="list-group-item" href="chat?id=<%=value.id%>">
+               <div class="col-md-2">
+                  <img src="/avatar.png" border="0">
+               </div>
+               <div class="col-md-10" style="padding-top: 10px">
+                  <div><b> <%=value.fname %> </b></div>
+                  <div>
+                    <p style="color: #666">
+                      <%= value.email %> <Br>
+                        <%= value.department %>
+                    </p>
+                  </div>
+                  <div><small>02-04-2017</small></div>
+               </div>
+               <div class="clearfix"></div>
+             </a>
+         <% }) } else {%>
+           <li class="list-group-item">
+             <h3 style="color: #ccc"> No User Available </h3>
+           </li>
+        <% } %>
+       </ul>
+      </div>
+     </div>
+
+     <div class="clearfix"></div>
+    </div>
+  </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" style="z-index: 10000 !important">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h2 class="modal-title font-dashboard color-red" id="exampleModalLabel"> Login </h2>
+      </div>
+      <div class="modal-body">
+        <form class="" action="index.html" method="post">
+          <label> Email Address </label>
+          <input type="text" class="form-control">
+          <label> Password </label>
+          <input type="password" name="" value="" class="form-control">
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-lg removebox" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-lg btn-primary removebox"> Login <i class="fa fa-plus-circle"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/jquery.1.11.js"></script>
+<script src="/bootstrap.min.js"></script>
+</body>
+</html>

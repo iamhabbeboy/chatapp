@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title> NodeJS with Mysql </title>
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <link rel="stylesheet" href="/bootstrap-theme.min.css">
+</head>
+<body>
+  <div class="container">
+  <h1> Todo </h1>
+  <a href="/" class="btn btn-danger">Back </a>
+  <br> <br>
+
+  <% if( Todo.length > 0 ) { %>
+    <% for(var x=0; x< Todo.length; x++) { %>
+
+      <% if ( Todo[x].title !== null ) { %>
+        <form method="post" action="/new-todo?id=<%= Todo[x].id %>">
+
+      <br>
+        <label> Title </label>
+       <input type="text" name="title" id="title" placeholder="Title" class="form-control" required value="<%= Todo[x].title %>">
+       <br>
+       <button type="submit" name="btn1" class="btn btn-info" > Update </button>
+
+       </form>
+
+    <% } } %>
+  <% } else { %>
+      <form method="post" action="/new-todo">
+
+    <br>
+      <label> Title </label>
+       <input type="text" name="title" id="title" placeholder="Title" class="form-control" required>
+       <br>
+       <button type="submit" name="btn" class="btn btn-info" >Add New </button>
+     </form>
+  <%  } %>
+
+</div>
+</body>
+</html>

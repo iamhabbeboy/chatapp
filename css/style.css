@@ -1,0 +1,28 @@
+body {
+  background: url('../40.jpg');
+}
+
+.transparent {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.transparent h1 {
+    color: orange;
+}
+
+.color-orange {
+  color: orange;
+}
+
+.transparent p {
+  color: #FFF;
+}
+
+.white {
+  color: #ccc;
+}
+
+.removebox {
+  border-radius: 0px !important;
+}

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "ejs": "^2.5.7",
+    "express-session": "^1.15.5",
+    "mysql": "file:mysql",
+    "express": "^4.13.4"
+  }
+}

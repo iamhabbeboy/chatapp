@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title> NodeJS with Mysql </title>
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootflat.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+<body>
+
+  <section style="padding: 30px;background-transparent;">
+    &nbsp;
+  </section>
+  <section class="">
+    <div class="container transparent">
+      <div class="col-md-2">
+        <div >
+        <center>
+         <img src="/avatar.png" border="0">
+           </center>
+         <br>
+         <ul class="list-group">
+           <li class="list-group-item">
+              <b>Azeez Abiodun</b>
+           </li>
+           <li class="list-group-item">
+             <small><%= uid %></small>
+           </li>
+           <li class="list-group-item">
+             <a href="#"><i class="fa fa-cog"></i> settings</a>
+           </li>
+           <li class="list-group-item">
+             <a href="./"><i class="fa fa-power-off"></i> signout</a>
+           </li>
+         </ul>
+
+       </div>
+      </div>
+      <div class="col-md-10">
+        <h3 class="color-orange">Jomitoro &#7885;&#x0300;r&#7885;&#x0300;</h3>
+      <div style="height: 520px;overflow:auto;background:#FFF">
+        <div style="padding: 10px;border-bottom: 1px solid #ccc">
+          &nbsp; &nbsp;<a href="/home"><b><i class="fa fa-chevron-left"></i> Back </b></a>
+        </div>
+       <ul class="list-group">
+         <li class="list-group-item">
+           <div class="col-md-2">
+              <img src="/avatar.png" border="0" style="width: 70px;max-width: 100%;">
+           </div>
+           <div class="col-md-10" style="padding-top: 10px">
+              <div><b> </b></div>
+              <div>
+                <p style="color: #666">
+                  <%= uid %>
+                </p>
+              </div>
+           </div>
+           <div class="clearfix"></div>
+         </li>
+       </ul>
+
+       <div style="height: 290px;background:#EEE;overflow:auto" id="old-chat">
+          <div id="scroll">
+                <% if(data.length > 0) { %>
+                <% data.forEach(function(value, key) { %>
+                <div style="padding-top: 10px;">
+                  <% if(value.sender == uid ) { %>
+                    <div class="col-md-6">
+                      &nbsp;
+                    </div>
+                    <div class="col-md-6" style="background: #FFF;padding-top: 20px;padding-bottom: 20px;">
+                      <%= value.message %>
+                    </div>
+                  <% } else { %>
+                    <div class="col-md-6">
+                      <%= value.message %>
+                    </div>
+                    <div class="col-md-6" style="background: #FFF">
+                      &nbsp;
+                    </div>
+
+                  <% } %>
+
+                  <div class="clearfix"></div>
+                </div>
+                <% }) } %>
+              </li>
+            </ul>
+            <div style="padding-top: 10px;display:none" id="chat-instant">
+                <div class="col-md-6">
+                  &nbsp;
+                </div>
+                <div class="col-md-6" style="background: #FFF;padding-top: 20px;padding-bottom: 20px;"" id="now">
+                </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+       </div>
+       <div style="border-top: 1px solid #ccc;padding-top: 5px;">
+         <div class="col-md-1" style="padding: 0px">
+           <input type="text" class="form-control" style="padding-top:15px;padding-bottom:15px;min-height: 50px !important;border:0px solid transparent;border-right: 1px solid #ccc;border-radius: 0px !important" placeholder="Key" id="chat-key">
+         </div>
+         <div class="col-md-9" style="padding: 0px;">
+         <textarea class="form-control" style="border: 0px solid transparent;border-radius: 0px !important" placeholder="Enter text..." id="chat-text"></textarea>
+         <input type="hidden" value="<%=id%>" id="receiver-id">
+         </div>
+         <div class="col-md-2" style="border-left: 1px solid #ccc">
+           <button class="btn btn-primary btn-lg" id="send"> Send <i class="fa fa-send"></i></button>
+         </div>
+         <div class="clearfix"></div>
+       </div>
+      </div>
+     </div>
+
+     <div class="clearfix"></div>
+    </div>
+  </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" style="z-index: 10000 !important">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h2 class="modal-title font-dashboard color-red" id="exampleModalLabel"> Login </h2>
+      </div>
+      <div class="modal-body">
+        <form class="" action="index.html" method="post">
+          <label> Email Address </label>
+          <input type="text" class="form-control">
+          <label> Password </label>
+          <input type="password" name="" value="" class="form-control">
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-lg removebox" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-lg btn-primary removebox"> Login <i class="fa fa-plus-circle"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/jquery.1.11.js"></script>
+<script src="/bootstrap.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
